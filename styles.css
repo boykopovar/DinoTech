@@ -1,0 +1,499 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --padding-unit: 1rem;
+    --scale-factor: 0.25;
+    --btn-bg: #354a7b;
+    --btn-bg-hover: #3858a1;
+    --btn-border-hover: #1d47a6;
+    --btn-focus-shadow: rgba(0, 123, 255, .25);
+    --white-color: #fff;
+    --text-color: #555;
+    --cycle-speed: 30s;
+    --track-length: 6000px;
+}
+
+.flex-display {
+    display: flex !important;
+}
+
+.center-items {
+    align-items: center !important;
+}
+
+.padding-double {
+    padding: calc(var(--scale-factor) * 2 * var(--padding-unit)) !important;
+}
+
+.action-btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .2rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.primary-btn {
+    color: #fff;
+    background-color: var(--btn-bg);
+    border-color: var(--btn-bg);
+}
+
+.primary-btn:hover {
+    color: #fff;
+    background-color: var(--btn-bg-hover);
+    border-color: var(--btn-border-hover);
+}
+
+.primary-btn.focus, .primary-btn:focus {
+    box-shadow: 0 0 0 .2rem var(--btn-focus-shadow);
+}
+
+.top-bar {
+    background-color: #1d273f;
+    padding: 20px 0;
+    position: relative;
+}
+
+.top-bar__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.emblem {
+    height: 70px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-box__field {
+    padding: 10px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color: #e0e0e0;
+    color: #666;
+    font-size: 16px;
+}
+
+.search-box__submit {
+    background-color: #54617d;
+    border: none;
+    padding: 0 10px;
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box__icon {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.btn {
+    font-size: 14px;
+}
+
+.btn--rounded {
+    border-radius: 5px;
+}
+
+.top-bar__quick-links {
+    background-color: var(--btn-bg);
+    color: var(--white-color);
+    border: none;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-bar__quick-links:hover {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--btn-border-hover);
+}
+
+.primary-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    min-height: calc(100vh - 110px - 40px - 110px - 40px - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.section__heading {
+    font-size: 32px;
+    color: #1d273f;
+    margin-bottom: 20px;
+}
+
+.section__text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.dino-playground {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dino-playground input[type="checkbox"] {
+    position: absolute;
+    left: -1000em;
+}
+
+.dino-playground #leap-btn {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    padding: 10px 20px;
+    background: var(--text-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.dino-playground #leap-btn:active {
+    background: #333;
+}
+
+.dino-playground #launch-game:checked ~ #leap-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dino-playground #start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 0px -2px white, 2px -2px white, 2px 0px white, 2px 2px white, 0px 2px white, -2px 2px white, -2px 0px white, -2px -2px white;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.dino-playground #start-screen label {
+    background: var(--text-color);
+    width: 80px;
+    height: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dino-playground #start-screen label:hover {
+    background: #777;
+}
+
+.dino-playground #start-screen label::before {
+    content: "\25b6";
+    color: white;
+    text-shadow: none;
+    font-size: 24px;
+    margin-top: -2px;
+}
+
+.dino-playground #launch-game:checked ~ #start-screen {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes shift-track {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.dino-playground #track {
+    animation: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--track-length);
+    height: 100%;
+    background-image: linear-gradient(to right, white 20%, transparent 0 22%, white 0 55%, transparent 0 56%, white 0 60%, transparent 0 62%, white 0 98.75%, transparent 0 100%, white 0), 
+                     linear-gradient(to right, white 19%, transparent 0 21%, white 0 21.75%, transparent 0 22.5%, white 0 40%, transparent 0 42%, white 0 42.5%, transparent 0 44%, white 0 55%, transparent 0 57%, white 0 78%, transparent 0 80%, white 0 90%, transparent 0 91%, white 0), 
+                     linear-gradient(transparent 70%, var(--text-color) 0 70.25%, transparent 0 70.5%, var(--text-color) 0 70.75%, transparent 0 71%, var(--text-color) 0 71.25%, transparent 0);
+    background-size: 1200px 0.5%, 1200px 0.5%, 120px 100%;
+    background-position: 0 70.75%, 0 71.25%, bottom left;
+    background-repeat: repeat-x;
+}
+
+.dino-playground #launch-game:checked ~ #play-area #track {
+    animation: shift-track var(--cycle-speed) linear infinite;
+}
+
+.dino-playground .obstacle {
+    position: absolute;
+    top: calc(70% - 70px);
+    width: 60px;
+    height: 80px;
+    background-image: linear-gradient(var(--text-color), var(--text-color)), linear-gradient(var(--text-color), var(--text-color)), linear-gradient(var(--text-color), var(--text-color)), linear-gradient(var(--text-color), var(--text-color)), linear-gradient(var(--text-color), var(--text-color)), linear-gradient(var(--text-color), var(--text-color)), linear-gradient(var(--text-color), var(--text-color)), radial-gradient(circle, var(--text-color) 5px, transparent 0), linear-gradient(var(--text-color), var(--text-color)), radial-gradient(circle, var(--text-color) 5px, transparent 0);
+    background-size: 10px 60px, 6px 6px, 10px 15px, 6px 6px, 20px 10px, 6px 6px, 10px 15px, 6px 6px, 20px 10px, 6px 6px;
+    background-position: 30px 15px, 31px 11px, 15px 40px, 16px 36px, 20px 50px, 15px 50px, 42px 35px, 42px 30px, 30px 45px, 42px 45px;
+    background-repeat: no-repeat;
+}
+
+@keyframes leap-motion {
+    0%, 100% { top: calc(70% - 70px); }
+    50% { top: calc(70% - 180px); }
+}
+
+@keyframes animate-legs {
+    0%, 100% {
+        box-shadow: 
+            11em 0, 12em 0, 13em 0, 14em 0, 15em 0, 16em 0, 17em 0, 18em 0,
+            10em 1em, 11em 1em, 12em 1em, 13em 1em, 14em 1em, 15em 1em, 16em 1em, 17em 1em, 18em 1em, 19em 1em,
+            10em 2em, 11em 2em, 13em 2em, 14em 2em, 15em 2em, 16em 2em, 17em 2em, 18em 2em, 19em 2em,
+            10em 3em, 11em 3em, 12em 3em, 13em 3em, 14em 3em, 15em 3em, 16em 3em, 17em 3em, 18em 3em, 19em 3em,
+            10em 4em, 11em 4em, 12em 4em, 13em 4em, 14em 4em, 15em 4em, 16em 4em, 17em 4em, 18em 4em, 19em 4em,
+            10em 5em, 11em 5em, 12em 5em, 13em 5em, 14em 5em, 15em 5em, 16em 5em, 17em 5em, 18em 5em, 19em 5em,
+            10em 6em, 11em 6em, 12em 6em, 13em 6em, 14em 6em,
+            10em 7em, 11em 7em, 12em 7em, 13em 7em, 14em 7em, 15em 7em, 16em 7em, 17em 7em,
+            0em 8em, 9em 8em, 10em 8em, 11em 8em, 12em 8em, 13em 8em,
+            0em 9em, 8em 9em, 9em 9em, 10em 9em, 11em 9em, 12em 9em, 13em 9em,
+            0em 10em, 1em 10em, 6em 10em, 7em 10em, 8em 10em, 9em 10em, 10em 10em, 11em 10em, 12em 10em, 13em 10em, 14em 10em, 15em 10em,
+            0em 11em, 1em 11em, 2em 11em, 5em 11em, 6em 11em, 7em 11em, 8em 11em, 9em 11em, 10em 11em, 11em 11em, 12em 11em, 13em 11em, 15em 11em,
+            0em 12em, 1em 12em, 2em 12em, 3em 12em, 4em 12em, 5em 12em, 6em 12em, 7em 12em, 8em 12em, 9em 12em, 10em 12em, 11em 12em, 12em 12em, 13em 12em,
+            0em 13em, 1em 13em, 2em 13em, 3em 13em, 4em 13em, 5em 13em, 6em 13em, 7em 13em, 8em 13em, 9em 13em, 10em 13em, 11em 13em, 12em 13em, 13em 13em,
+            1em 14em, 2em 14em, 3em 14em, 4em 14em, 5em 14em, 6em 14em, 7em 14em, 8em 14em, 9em 14em, 10em 14em, 11em 14em, 12em 14em,
+            2em 15em, 3em 15em, 4em 15em, 5em 15em, 6em 15em, 7em 15em, 8em 15em, 9em 15em, 10em 15em, 11em 15em, 12em 15em,
+            3em 16em, 4em 16em, 5em 16em, 6em 16em, 7em 16em, 8em 16em, 9em 16em, 10em 16em, 11em 16em,
+            4em 17em, 5em 17em, 6em 17em, 7em 17em, 8em 17em, 9em 17em, 10em 17em,
+            5em 18em, 6em 18em, 7em 18em, 10em 18em, 11em 18em,
+            5em 19em, 6em 19em,
+            5em 20em,
+            5em 21em, 6em 21em;
+    }
+    50% {
+        box-shadow: 
+            11em 0, 12em 0, 13em 0, 14em 0, 15em 0, 16em 0, 17em 0, 18em 0,
+            10em 1em, 11em 1em, 12em 1em, 13em 1em, 14em 1em, 15em 1em, 16em 1em, 17em 1em, 18em 1em, 19em 1em,
+            10em 2em, 11em 2em, 13em 2em, 14em 2em, 15em 2em, 16em 2em, 17em 2em, 18em 2em, 19em 2em,
+            10em 3em, 11em 3em, 12em 3em, 13em 3em, 14em 3em, 15em 3em, 16em 3em, 17em 3em, 18em 3em, 19em 3em,
+            10em 4em, 11em 4em, 12em 4em, 13em 4em, 14em 4em, 15em 4em, 16em 4em, 17em 4em, 18em 4em, 19em 4em,
+            10em 5em, 11em 5em, 12em 5em, 13em 5em, 14em 5em, 15em 5em, 16em 5em, 17em 5em, 18em 5em, 19em 5em,
+            10em 6em, 11em 6em, 12em 6em, 13em 6em, 14em 6em,
+            10em 7em, 11em 7em, 12em 7em, 13em 7em, 14em 7em, 15em 7em, 16em 7em, 17em 7em,
+            0em 8em, 9em 8em, 10em 8em, 11em 8em, 12em 8em, 13em 8em,
+            0em 9em, 8em 9em, 9em 9em, 10em 9em, 11em 9em, 12em 9em, 13em 9em,
+            0em 10em, 1em 10em, 6em 10em, 7em 10em, 8em 10em, 9em 10em, 10em 10em, 11em 10em, 12em 10em, 13em 10em, 14em 10em, 15em 10em,
+            0em 11em, 1em 11em, 2em 11em, 5em 11em, 6em 11em, 7em 11em, 8em 11em, 9em 11em, 10em 11em, 11em 11em, 12em 11em, 13em 11em, 15em 11em,
+            0em 12em, 1em 12em, 2em 12em, 3em 12em, 4em 12em, 5em 12em, 6em 12em, 7em 12em, 8em 12em, 9em 12em, 10em 12em, 11em 12em, 12em 12em, 13em 12em,
+            0em 13em, 1em 13em, 2em 13em, 3em 13em, 4em 13em, 5em 13em, 6em 13em, 7em 13em, 8em 13em, 9em 13em, 10em 13em, 11em 13em, 12em 13em, 13em 13em,
+            1em 14em, 2em 14em, 3em 14em, 4em 14em, 5em 14em, 6em 14em, 7em 14em, 8em 14em, 9em 14em, 10em 14em, 11em 14em, 12em 14em,
+            2em 15em, 3em 15em, 4em 15em, 5em 15em, 6em 15em, 7em 15em, 8em 15em, 9em 15em, 10em 15em, 11em 15em, 12em 15em,
+            3em 16em, 4em 16em, 5em 16em, 6em 16em, 7em 16em, 10em 16em, 11em 16em, 12em 16em,
+            4em 17em, 5em 17em, 10em 17em, 11em 17em,
+            5em 18em, 10em 18em, 11em 18em,
+            5em 19em, 6em 19em, 10em 19em,
+            10em 20em, 11em 20em;
+    }
+}
+
+.dino-playground #player {
+    pointer-events: none;
+    width: 60px;
+    height: 80px;
+    position: absolute;
+    top: calc(70% - 70px);
+    left: 25px;
+}
+
+.dino-playground #player::before {
+    content: "";
+    pointer-events: none;
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 2.5px;
+    color: var(--text-color);
+    box-shadow: 
+        11em 0, 12em 0, 13em 0, 14em 0, 15em 0, 16em 0, 17em 0, 18em 0,
+        10em 1em, 11em 1em, 12em 1em, 13em 1em, 14em 1em, 15em 1em, 16em 1em, 17em 1em, 18em 1em, 19em 1em,
+        10em 2em, 11em 2em, 13em 2em, 14em 2em, 15em 2em, 16em 2em, 17em 2em, 18em 2em, 19em 2em,
+        10em 3em, 11em 3em, 12em 3em, 13em 3em, 14em 3em, 15em 3em, 16em 3em, 17em 3em, 18em 3em, 19em 3em,
+        10em 4em, 11em 4em, 12em 4em, 13em 4em, 14em 4em, 15em 4em, 16em 4em, 17em 4em, 18em 4em, 19em 4em,
+        10em 5em, 11em 5em, 12em 5em, 13em 5em, 14em 5em, 15em 5em, 16em 5em, 17em 5em, 18em 5em, 19em 5em,
+        10em 6em, 11em 6em, 12em 6em, 13em 6em, 14em 6em,
+        10em 7em, 11em 7em, 12em 7em, 13em 7em, 14em 7em, 15em 7em, 16em 7em, 17em 7em,
+        0em 8em, 9em 8em, 10em 8em, 11em 8em, 12em 8em, 13em 8em,
+        0em 9em, 8em 9em, 9em 9em, 10em 9em, 11em 9em, 12em 9em, 13em 9em,
+        0em 10em, 1em 10em, 6em 10em, 7em 10em, 8em 10em, 9em 10em, 10em 10em, 11em 10em, 12em 10em, 13em 10em, 14em 10em, 15em 10em,
+        0em 11em, 1em 11em, 2em 11em, 5em 11em, 6em 11em, 7em 11em, 8em 11em, 9em 11em, 10em 11em, 11em 11em, 12em 11em, 13em 11em, 15em 11em,
+        0em 12em, 1em 12em, 2em 12em, 3em 12em, 4em 12em, 5em 12em, 6em 12em, 7em 12em, 8em 12em, 9em 12em, 10em 12em, 11em 12em, 12em 12em, 13em 12em,
+        0em 13em, 1em 13em, 2em 13em, 3em 13em, 4em 13em, 5em 13em, 6em 13em, 7em 13em, 8em 13em, 9em 13em, 10em 13em, 11em 11em, 12em 13em, 13em 13em,
+        1em 14em, 2em 14em, 3em 14em, 4em 14em, 5em 14em, 6em 14em, 7em 14em, 8em 14em, 9em 14em, 10em 14em, 11em 14em, 12em 14em,
+        2em 15em, 3em 15em, 4em 15em, 5em 15em, 6em 15em, 7em 15em, 8em 15em, 9em 15em, 10em 15em, 11em 15em, 12em 15em,
+        3em 16em, 4em 16em, 5em 16em, 6em 16em, 7em 16em, 8em 16em, 9em 16em, 10em 16em, 11em 16em,
+        4em 17em, 5em 17em, 6em 17em, 7em 17em, 8em 17em, 9em 17em, 10em 17em,
+        5em 18em, 6em 18em, 7em 18em, 10em 18em, 11em 18em,
+        5em 19em, 6em 19em,
+        5em 20em,
+        5em 21em, 6em 21em;
+}
+
+.dino-playground #launch-game:checked ~ #play-area #player::before {
+    animation: animate-legs 0.25s steps(1, start) infinite;
+}
+
+.dino-playground #launch-game:checked ~ #leap-btn:active ~ #play-area #player {
+    animation: leap-motion 1s ease-out;
+}
+
+@keyframes reveal-end {
+    0%, 85% { opacity: 0; pointer-events: none; }
+    90%, 100% { opacity: 1; pointer-events: auto; }
+}
+
+.dino-playground #end-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 0px -2px white, 2px -2px white, 2px 0px white, 2px 2px white, 0px 2px white, -2px 2px white, -2px 0px white, -2px -2px white;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dino-playground #launch-game:checked ~ #play-area #end-screen {
+    animation: reveal-end var(--cycle-speed) linear infinite;
+}
+
+.bottom-bar {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.bottom-bar__info-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    background-color: #1d273f;
+    color: white;
+    border-radius: 5px;
+    min-height: 110px;
+}
+
+.bottom-bar__emblem {
+    height: 50px;
+}
+
+.bottom-bar__details {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.bottom-bar__contact {
+    font-size: 12px;
+    color: #e0e0e0;
+}
+
+.bottom-bar__text {
+    margin-bottom: 8px;
+}
+
+.bottom-bar__contact-link {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.bottom-bar__contact-link:hover {
+    text-decoration: underline;
+}
