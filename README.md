@@ -2,7 +2,9 @@
 
 Этот проект – демонстрация того, как можно создать анимированный интерфейс, используя **только HTML и CSS**, без каких-либо JavaScript или иных скриптов. Используя пиксель-арты вместо изображений.
 
-[![Демонстрация работы](./demo.png)](https://github.io/boykopovar/DinoTech)
+<a href="https://github.io/boykopovar/DinoTech">
+    <img src="./demo.png" alt="Демонстрация работы" width="400">
+</a>
 
 ---
 
