@@ -8,99 +8,117 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="top-bar">
-        <div class="top-bar__container">
-            <a href="https://www.bsuir.by/">
-                <img class="emblem" src="https://abitur.bsuir.by/m/12_113227_1_54858.jpg" alt="БГУИР Абитуриент">
-            </a>
-            <form class="search-box top-bar__search-box" method="get">
-                <input type="hidden" name="resID" value="113227">
-                <input type="hidden" name="lang" value="ru">
-                <input type="hidden" name="menuItemID" value="-1">
-                <input type="hidden" name="noshow" value="1">
-                <input class="search-box__field h4" placeholder="Поиск" name="q" onclick="this.value=''" onselect="this.value=''">
-                <button class="btn search-box__submit">
-                    <svg class="search-box__icon" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                    </svg>
-                </button>
-            </form>
-            <button class="btn btn--rounded top-bar__quick-links">
-                Популярные ссылки
+<header class="top-bar">
+    <div class="top-bar__container">
+        <a href="https://abitur.bsuir.by/" class="logo-link">
+            <img src="https://abitur.bsuir.by/m/12_113227_0_54837.svg" alt="Логотип БГУИР" class="logo">
+        </a>
+        <form class="search-box top-bar__search-box" method="get">
+            <input type="hidden" name="resID" value="113227">
+            <input type="hidden" name="lang" value="ru">
+            <input type="hidden" name="menuItemID" value="-1">
+            <input type="hidden" name="noshow" value="1">
+            <input class="search-box__field h4" placeholder="Поиск" name="q" onclick="this.value=''" onselect="this.value=''">
+            <button class="btn search-box__submit">
+                <svg class="search-box__icon" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
             </button>
-        </div>
-    </header>
+        </form>
+    </div>
+</header>
 
-    <main class="primary-content">
-        <section class="section">
-            <h1 class="section__heading">🚧 Технические работы</h1>
-            <p class="section__text">
-                Уважаемые посетители! На сайте проводятся технические работы.<br>
-                Приносим извинения за временные неудобства. Пожалуйста, попробуйте зайти позже.
-            </p>
-            <form method="get" class="dino-playground">
-                <input type="checkbox" id="launch-game" />
-                <button type="button" id="leap-btn">Jump</button>
-                <div id="start-screen">
-                    <label for="launch-game" aria-label="Click here to start"></label>
+<main class="primary-content">
+    <section class="section">
+        <h1 class="section__heading">🚧 Технические работы</h1>
+        <p class="section__text">
+            Уважаемые посетители! На сайте проводятся технические работы.<br>
+            Приносим извинения за временные неудобства. Пожалуйста, попробуйте зайти позже.
+        </p>
+        <form method="get" class="dino-playground">
+            <input type="checkbox" id="launch-game" />
+            <button type="button" id="leap-btn">Jump</button>
+            <div id="start-screen">
+                <label for="launch-game" aria-label="Click here to start"></label>
+            </div>
+            <div id="play-area">
+                <div id="track">
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.10);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.20);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.30);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.40);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.50);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.60);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.70);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.80);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 0.90);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.00);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.10);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.20);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.30);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.40);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.50);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.60);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.70);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.80);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 1.90);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.00);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.10);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.20);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.30);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.40);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.50);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.60);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.70);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.80);"></div>
+                    <div class="obstacle" style="left: calc(var(--track-length) * 2.90);"></div>
                 </div>
-                <div id="play-area">
-                    <div id="track">
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.10);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.20);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.30);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.40);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.50);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.60);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.70);"></div>
-                        <div class="obstacle" style="left: calc(var(--track-length) * 0.80);"></div>
-                    </div>
-                    <div id="player"></div>
-                    <div id="end-screen">
-                        <h2>Game Over</h2>
-                    </div>
-                </div>
-            </form>
-        </section>
-    </main>
+                <div id="player"></div>
+                <div id="end-screen">
 
-    <footer class="bottom-bar">
-        <div class="bottom-bar__info-section">
-            <a href="https://www.bsuir.by/">
-                <img class="bottom-bar__emblem" src="https://abitur.bsuir.by/m/12_113227_1_54858.jpg" alt="БГУИР">
-            </a>
-            <div class="bottom-bar__details">
-                <div class="bottom-bar__contact">
-                    <p class="bottom-bar__text">
-                        Приёмная комиссия:<br>
-                        ул. П. Бровки, 4, каб. 310<br>
-                        220013 г. Минск,<br>
-                        тел. <a href="tel:+375172938815" class="bottom-bar__contact-link">+375 17 293-88-15</a>
-                    </p>
-                </div>
-                <div class="bottom-bar__contact">
-                    <p class="bottom-bar__text">
-                        График работы:<br>
-                        Пн-Чт: 8.30-17.30<br>
-                        Перерыв: 13.00-13.45<br>
-                        Пт: 8.30-16.00<br>
-                        Перерыв: 13.00-13.30
-                    </p>
-                    <p class="bottom-bar__text">
-                        E-mail:<br>
-                        <a class="bottom-bar__contact-link" href="mailto:prcom@bsuir.by">prcom@bsuir.by</a>
-                    </p>
-                </div>
-                <div class="bottom-bar__contact">
-                    <p class="bottom-bar__text">
-                        Контакты:<br>
-                        <a class="bottom-bar__contact-link" href="https://t.me/abiturbsuir">Абитуриент в Telegram</a><br>
-                        <a class="bottom-bar__contact-link" href="https://t.me/pkbsuir">Приёмная комиссия</a><br>
-                        <a class="bottom-bar__contact-link" href="https://t.me/BsuirAbiturBot">Чат-бот</a>
-                    </p>
                 </div>
             </div>
+        </form>
+    </section>
+</main>
+
+<footer class="bottom-bar">
+    <div class="bottom-bar__info-section">
+        <a href="https://www.bsuir.by/">
+            <img class="bottom-bar__emblem" src="https://abitur.bsuir.by/m/12_113227_1_54858.jpg" alt="БГУИР">
+        </a>
+        <div class="bottom-bar__details">
+            <div class="bottom-bar__contact">
+                <p class="bottom-bar__text">
+                    Приёмная комиссия:<br>
+                    ул. П. Бровки, 4, каб. 310<br>
+                    220013 г. Минск,<br>
+                    тел. <a href="tel:+375172938815" class="bottom-bar__contact-link">+375 17 293-88-15</a>
+                </p>
+            </div>
+            <div class="bottom-bar__contact">
+                <p class="bottom-bar__text">
+                    График работы:<br>
+                    Пн-Чт: 8.30-17.30<br>
+                    Перерыв: 13.00-13.45<br>
+                    Пт: 8.30-16.00<br>
+                    Перерыв: 13.00-13.30
+                </p>
+                <p class="bottom-bar__text">
+                    E-mail:<br>
+                    <a class="bottom-bar__contact-link" href="mailto:prcom@bsuir.by">prcom@bsuir.by</a>
+                </p>
+            </div>
+            <div class="bottom-bar__contact">
+                <p class="bottom-bar__text">
+                    Контакты:<br>
+                    <a class="bottom-bar__contact-link" href="https://t.me/abiturbsuir">Абитуриент в Telegram</a><br>
+                    <a class="bottom-bar__contact-link" href="https://t.me/pkbsuir">Приёмная комиссия</a><br>
+                    <a class="bottom-bar__contact-link" href="https://t.me/BsuirAbiturBot">Чат-бот</a>
+                </p>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>
